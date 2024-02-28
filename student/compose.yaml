@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  api:
+    image: sachins32/student-api:v1
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_HOST: db
+    depends_on:
+      - db
+    restart: on-failure
+    networks:
+      student:
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: my-pass
+      MYSQL_DATABASE: university
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
+    networks:
+      student:
+
+networks:
+  student:
