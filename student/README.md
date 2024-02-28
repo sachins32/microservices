@@ -4,7 +4,7 @@ mvn clean package -DskipTests
 Docker Image:
 docker build -t sachins32/student-api:v1 .
 
-Dependency, Run Mysql:
+Run Mysql:
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=my-pass -e MYSQL_DATABASE=university -e MYSQL_USER=user -e MYSQL_PASSWORD=password -d mysql
 
 Run App:
