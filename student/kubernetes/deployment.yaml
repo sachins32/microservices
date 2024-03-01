@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-api-deployment
+  labels:
+    app: student-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-api
+  template:
+    metadata:
+      labels:
+        app: student-api
+    spec:
+      containers:
+        - name: student-api
+          image: sachins32/student-api:v1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MYSQL_HOST
+              value: mysql-service
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-api-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8080
+  selector:
+    app: student-api
+
