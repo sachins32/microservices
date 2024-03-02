@@ -12,4 +12,14 @@ docker run -e MYSQL_SQL=172.17.0.2 -p 8080:8080 sachins32/student-api:v1
 
 Mysql IP
 docker inspect mysql_container_name/id
+
+Run Using Docker compose
+docker-compose up -d
+
+Run Uisng Kubernetes
+kubectl apply -f mysql-deployment.yaml
+kubectl apply -f deployment.yaml
+
+Access using NodePort:
+minikube service student-api-service --url
  
