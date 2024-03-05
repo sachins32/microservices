@@ -11,5 +11,10 @@ pipeline {
                 echo "docker build"
             }
         }
+        stage("deploy") {
+                    steps {
+                        echo "deploy to k8s"
+                    }
+                }
     }
 }
