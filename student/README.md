@@ -16,7 +16,7 @@ docker inspect mysql_container_name/id
 Run Using Docker compose
 docker-compose up -d
 
-Run Uisng Kubernetes
+Run Using Kubernetes
 kubectl apply -f mysql-secret.yaml
 kubectl apply -f mysql-deployment.yaml
 kubectl apply -f student-configmap.yaml
