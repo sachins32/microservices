@@ -17,9 +17,18 @@ Run Using Docker compose
 docker-compose up -d
 
 Run Uisng Kubernetes
+kubectl apply -f mysql-secret.yaml
 kubectl apply -f mysql-deployment.yaml
+kubectl apply -f student-configmap.yaml
 kubectl apply -f deployment.yaml
 
 Access using NodePort:
 minikube service student-api-service --url
- 
+
+Base64 encode:
+echo -n 'Hello, World!' | base64
+Using Python: python3 -m base64 <<< 'Hello, World!'
+
+Base64 Decode:
+base64 -d <<< SGVsbG8sIFdvcmxkIQo=
+Using Python: python3 -m base64 -d <<< SGVsbG8sIFdvcmxkIQo=
