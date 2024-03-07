@@ -6,7 +6,7 @@ pipeline {
               sh 'cd student'
               sh 'pwd'
               sh 'ls'
-              sh 'mvn clean package -DskipTests'
+              sh 'cd student && mvn clean package -DskipTests'
             }
         }
         stage("docker build") {
