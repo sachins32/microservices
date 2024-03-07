@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: student-api
-          image: sachins32/student-api:v1
+          image: sachins32/student-api
           ports:
             - containerPort: 8080
           env:
