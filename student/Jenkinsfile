@@ -5,7 +5,7 @@ pipeline {
             steps {
               sh 'cd student'
               sh 'pwd'
-              sh 'ls'
+              sh 'java --version'
               sh 'cd student && mvn clean package -DskipTests'
             }
         }
