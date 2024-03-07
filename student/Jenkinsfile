@@ -5,6 +5,7 @@ pipeline {
             steps {
               sh 'cd student'
               sh 'pwd'
+              sh 'ls'
               sh 'mvn clean package -DskipTests'
             }
         }
