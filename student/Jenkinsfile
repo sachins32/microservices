@@ -4,6 +4,7 @@ pipeline {
         stage("Build") {
             steps {
               sh 'cd student'
+              sh 'pwd'
               sh 'mvn clean package -DskipTests'
             }
         }
