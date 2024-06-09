@@ -1,0 +1,32 @@
+Microservices are distributed and they communicate with each other by inter-process communication(IPC) on network level.
+Inter-process communication protocols like HTTP, gRPC or message brokers AMQP protocol.
+
+2 types of communication
+synchronous and asynchronous
+
+Synchronous communication is using HTTP or gRPC protocol for returning sync response. The client sends a request and waits for a response 
+from the service. So that means client code block their thread, until the response reach from the server.
+The synchronous communication protocols can be HTTP or HTTPS or gRPC.
+
+So that means the client call the server and block client their operations.
+The client code will continue its task when it receives the HTTP server response. So this operation called Synchronous communication.
+
+Asynchronous communication, the client sends a request but it doesn’t wait for a response from the service. So the key point here is that, 
+the client should not have blocked a thread while waiting for a response.
+
+The most popular protocol for this Asynchronous communications is AMQP (Advanced Message Queuing Protocol). So with using AMQP protocols, 
+the client sends the message with using message broker systems like Kafka and RabbitMQ queue. The message producer usually does not wait for 
+a response. This message consume from the subscriber systems in async way, and no one waiting for response suddenly.
+
+An asynchronous communication also divided by 2 according to implementation. An asynchronous systems can be implemented in a one-to-one(queue) mode or one-to-many (topic) mode.
+
+In a one-to-one(queue) implementation there is a single producer and single receiver. But in one-to-many (topic) implementation has Multiple receivers. 
+Each request can be processed by zero to multiple receivers. one-to-many (topic) communications must be asynchronous.
+
+So we will see this communication with the publish/subscribe mechanism used in patterns like Event-driven microservices architecture in the upcoming articles. 
+Basically an event-bus or message broker system is publishing events between multiple microservices, and communication provide with subscribing these events in an async way.
+
+Kafka and RabbitMQ is the best tools for this operations.
+
+As you can see that we have understand Microservices Communication types — Sync or Async Communication, And microservice-based application will often use a 
+combination of these 2 communication styles. So we will also design our e-commerce architecture with using both communication types.
